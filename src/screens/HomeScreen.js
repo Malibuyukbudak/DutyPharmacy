@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Text, StyleSheet, View, FlatList, Image, TouchableOpacity } from 'react-native';
 import axios from 'axios'
 
-
 const HomeScreen = ({ navigation }) => {
 
   const [resultDataList, setResults] = useState([]);
@@ -24,13 +23,13 @@ const HomeScreen = ({ navigation }) => {
 
   return <View style={styles.views} >
     <Image
-    style={
-      {
-        width:412,
-        height:150,
-        
-      }  
-    }
+      style={
+        {
+          width: 412,
+          height: 150,
+
+        }
+      }
       source={require('../../assets/eczane.png')}
       resizeMode='contain'
     />
@@ -39,20 +38,19 @@ const HomeScreen = ({ navigation }) => {
       data={resultDataList}
       keyExtractor={resultDataList => resultDataList.phone}
       renderItem={({ item }) => {
-        return <TouchableOpacity 
-        onPress={() => {
-
-          navigation.navigate('Maps', {
-            itemResult:"item.name",
-            otherParam: 'anything you want here',
-          });
-        }}>
+        return <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Maps', {
+              items: item
+            });
+          }}>
           <Text style={styles.pharmacy}>Eczane : {item.name}</Text>
           <Text style={styles.pharmacy}>İlçe : {item.dist}</Text>
           <Text style={styles.pharmacy}>Adres : {item.address}</Text>
           <Text style={styles.pharmacy}>İletişim : {item.phone}</Text>
+          <Text style={styles.pharmacy}>Loc : {item.loc}</Text>
           <Text> </Text>
-          
+
         </TouchableOpacity>
 
       }}
