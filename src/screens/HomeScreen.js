@@ -11,7 +11,7 @@ const HomeScreen = ({ navigation }) => {
 
       const response = await axios.get("https://api.collectapi.com/health/dutyPharmacy?il=Edirne", {
         headers: {
-          "authorization": "apikey 6uDiQeEWNAi5ImendwJ5um:6iuMfC9qLbc9w2yKnOmWg1",
+          "authorization": "apikey 0J0WhEFRcddsFoBvmlMZTd:2C19fhoiNmQ2JIz4gI4ALf",
           "content-type": "application/json"
         }
       });

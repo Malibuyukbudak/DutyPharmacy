@@ -12,6 +12,7 @@
     "axios": "^0.24.0",
     "expo": "^43.0.0",
     "expo-linking": "^2.4.2",
+    "expo-location": "^13.0.4",
     "expo-status-bar": "~1.1.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
