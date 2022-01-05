@@ -15,8 +15,8 @@ const MapsScreen = ({ navigation }) => {
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421,
   });
-
   return <View  >
+    <Button title="Yol Tarifi İçin Tıkla"  onPress={() => Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${mapRegion.latitude},${mapRegion.longitude}&origin=Şuanki+Konumunuz`)} />
     <Button title="Aramak için tıklayanız"  onPress={() => Linking.openURL(`tel:${phoneNumber}`)} />
     <MapView region={mapRegion} style={styles.map}>
     <Marker
