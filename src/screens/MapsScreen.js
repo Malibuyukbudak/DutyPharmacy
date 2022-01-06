@@ -36,10 +36,6 @@ const MapsScreen = ({ navigation }) => {
     longitudeDelta: 0.0421,
   });
   
-console.log(location);
-//try branch 
-//// try 
-
 
   return <View >
     <Button
