@@ -38,6 +38,7 @@ const MapsScreen = ({ navigation }) => {
   
 console.log(location);
 //try branch 
+//// try 
 
 
   return <View >
