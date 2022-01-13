@@ -1,33 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { Text, StyleSheet, View, Button, Dimensions } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, Button, Dimensions } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import * as Linking from "expo-linking";
-import * as Location from "expo-location";
-
 
 
 const MapsScreen = ({ navigation }) => {
 
-  const [location, setLocation] = useState(null);
-  const [errorMsg, setErrorMsg] = useState(null);
-
-  useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-
-      if (status !== 'granted') {
-        setErrorMsg('Permission to access location was denied');
-        console.log(errorMsg);
-        return;
-      }
-
-      let location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
-    })();
-  }, []);
-  
   let dutyLocataion = navigation.state.params.items.loc.split(",")
   let phoneNumber = navigation.state.params.items.phone;
+  let location=navigation.state.params.location;
+
 
   const [mapRegion, setmapRegion] = useState({
     latitude: parseFloat(dutyLocataion[0]),
@@ -36,7 +18,6 @@ const MapsScreen = ({ navigation }) => {
     longitudeDelta: 0.0421,
   });
   
-
   return <View >
     <Button
       color="black"
@@ -44,6 +25,7 @@ const MapsScreen = ({ navigation }) => {
       onPress={() =>
         Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${mapRegion.latitude},${mapRegion.longitude}&origin=${location.coords.latitude},${location.coords.longitude}`)}
     />
+
 
     <Button
       title="Aramak için tıklayınız"
