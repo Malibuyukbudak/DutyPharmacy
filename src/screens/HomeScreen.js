@@ -40,7 +40,11 @@ const HomeScreen = ({ navigation }) => {
       setLocation(location);
     })();
   }, []);
-
+    if(locations == null){
+      return <View>
+        <Text> Lütfen konum açınız </Text>
+      </View>
+    }
       return <View style={styles.views} >
     <Image
       style={
